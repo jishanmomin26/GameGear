@@ -6,6 +6,7 @@ import Wishlist from '../pages/Wishlist'
 import About from '../pages/About'
 import Contact from '../pages/Contact'
 import NotFound from '../pages/NotFound'
+import ComponentShowcase from '../pages/dev/ComponentShowcase'
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
   {
     path: '/contact',
     element: <Contact />,
+  },
+  // Development only — component showcase
+  {
+    path: '/dev/components',
+    element: <ComponentShowcase />,
   },
   {
     path: '*',
