@@ -1,18 +1,22 @@
 import { Outlet } from 'react-router-dom'
+import { Navbar, Footer } from '../components/layout'
 
 const MainLayout = () => {
   return (
     <div className="flex min-h-screen flex-col bg-obsidian text-text-primary">
-      {/* Navbar — Milestone 3 */}
-      <header id="main-header" />
+      {/* Navigation */}
+      <Navbar />
+
+      {/* Spacer for fixed navbar (72px height) */}
+      <div className="h-[72px]" />
 
       {/* Page Content */}
-      <div className="flex-1">
+      <main className="flex-1">
         <Outlet />
-      </div>
+      </main>
 
-      {/* Footer — Milestone 3 */}
-      <footer id="main-footer" />
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
