@@ -1,16 +1,187 @@
-# React + Vite
+# 🎮 GameGear
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **A Premium Gaming E-Commerce Frontend built with React, Vite, Tailwind CSS, and Framer Motion.**
 
-Currently, two official plugins are available:
+GameGear is a modern frontend-only gaming store designed to showcase professional UI/UX, reusable React components, responsive layouts, and clean frontend architecture.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The project is built incrementally using milestone-based development and follows a professional GitHub workflow.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+* 🎨 Premium Gaming UI
+* 🌙 Dark Theme
+* 📱 Fully Responsive Design
+* ⚡ Smooth Framer Motion Animations
+* 🛍️ Shop Page
+* 🔍 Search & Filters
+* 📦 Product Details
+* ❤️ Wishlist (UI)
+* 🛒 Shopping Cart (UI)
+* 📂 Category Browsing
+* ℹ️ About Page
+* 📞 Contact Page
+* ❌ Custom 404 Page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+* React
+* Vite
+* JavaScript
+
+### Styling
+
+* Tailwind CSS
+
+### Animation
+
+* Framer Motion
+
+### Routing
+
+* React Router
+
+### Icons
+
+* Lucide React
+
+### Data
+
+* Local JSON
+
+---
+
+## 📂 Project Structure
+
+```text
+GameGear/
+│
+├── docs/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── layouts/
+│   ├── routes/
+│   ├── hooks/
+│   ├── data/
+│   ├── styles/
+│   ├── utils/
+│   ├── context/
+│   └── App.jsx
+│
+├── package.json
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone <repository-url>
+```
+
+### Navigate to the Project
+
+```bash
+cd GameGear
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start Development Server
+
+```bash
+npm run dev
+```
+
+---
+
+## 📌 Development Workflow
+
+The project is built milestone by milestone.
+
+Every milestone follows this workflow:
+
+```text
+Plan
+   ↓
+Implement
+   ↓
+Review
+   ↓
+Test
+   ↓
+Git Commit
+   ↓
+Git Push
+```
+
+No milestone is started until the previous one is completed and verified.
+
+---
+
+## 🎨 Design Philosophy
+
+GameGear follows a premium design language focused on:
+
+* Clean layouts
+* Dark aesthetic
+* Crimson & Gold branding
+* Glassmorphism
+* Smooth animations
+* Reusable UI components
+* Mobile-first responsiveness
+
+---
+
+## 📚 Documentation
+
+Project documentation is available inside the `docs/` folder.
+
+* PROJECT_PLAN.md
+* DESIGN_SYSTEM.md
+* ROADMAP.md
+* AI_RULES.md
+* REFERENCES.md
+* DEVELOPMENT_LOG.md
+
+---
+
+## 🗺 Roadmap
+
+* Project Foundation
+* Design System
+* Navigation
+* Home Page
+* Product Components
+* Shop
+* Product Details
+* Cart & Wishlist
+* About & Contact
+* Final Polish
+
+---
+
+## 📄 License
+
+This project is created for educational and portfolio purposes.
+
+---
+
+## 👨‍💻 Author
+
+Developed by **Jishan Momin**.
