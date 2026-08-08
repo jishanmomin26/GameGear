@@ -139,7 +139,7 @@ const Footer = () => {
                 aria-label="Email for newsletter"
                 className="flex-1 rounded-[12px] border border-graphite bg-obsidian px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted transition-colors duration-200 focus:border-crimson focus:outline-none"
               />
-              <Button size="sm" className="shrink-0" icon={ArrowRight}>
+              <Button size="small" className="shrink-0" icon={ArrowRight}>
                 <span className="sr-only">Subscribe</span>
               </Button>
             </form>

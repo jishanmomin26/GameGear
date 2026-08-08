@@ -1,22 +1,18 @@
-import { motion } from 'framer-motion'
-
 const sizes = {
-  sm: 'h-6 w-6 border-2',
-  md: 'h-10 w-10 border-3',
-  lg: 'h-16 w-16 border-4',
+  small: 'h-6 w-6 border-2',
+  medium: 'h-10 w-10 border-[3px]',
+  large: 'h-16 w-16 border-4',
 }
 
 const Loader = ({
-  size = 'md',
+  size = 'medium',
   fullScreen = false,
   className = '',
 }) => {
   const spinner = (
-    <motion.div
-      animate={{ rotate: 360 }}
-      transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+    <div
       className={`
-        rounded-full
+        animate-spin rounded-full
         border-crimson border-t-transparent
         ${sizes[size]}
         ${className}

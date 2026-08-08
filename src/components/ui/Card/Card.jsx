@@ -5,13 +5,10 @@ const Card = ({
   hover = true,
   glass = false,
   className = '',
-  as = 'div',
   ...rest
 }) => {
-  const Component = motion.create(as)
-
   return (
-    <Component
+    <motion.div
       whileHover={hover ? { y: -4, boxShadow: '0 8px 32px rgba(215, 38, 56, 0.15)' } : {}}
       transition={{ duration: 0.3 }}
       className={`
@@ -27,7 +24,7 @@ const Card = ({
       {...rest}
     >
       {children}
-    </Component>
+    </motion.div>
   )
 }
 

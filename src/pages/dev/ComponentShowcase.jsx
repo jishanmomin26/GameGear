@@ -6,7 +6,7 @@
  * or hidden before production deployment.
  */
 
-import { ShoppingCart, Heart, ArrowRight, Zap, Search } from 'lucide-react'
+import { ShoppingCart, Heart, ArrowRight, Search } from 'lucide-react'
 import {
   Button,
   Container,
@@ -27,7 +27,7 @@ const ComponentShowcase = () => {
       <Container>
         {/* Page Header */}
         <div className="mb-16 text-center">
-          <Badge variant="crimson" className="mb-4">Development Only</Badge>
+          <Badge variant="new" className="mb-4">Development Only</Badge>
           <h1 className="text-[44px] font-extrabold text-text-primary max-sm:text-[32px]">
             Component Showcase
           </h1>
@@ -56,9 +56,9 @@ const ComponentShowcase = () => {
         {/* Sizes */}
         <p className="mt-8 mb-4 text-sm font-medium uppercase tracking-wider text-text-muted">Sizes</p>
         <div className="flex flex-wrap items-center gap-4">
-          <Button size="sm">Small</Button>
-          <Button size="md">Medium</Button>
-          <Button size="lg">Large</Button>
+          <Button size="small">Small</Button>
+          <Button size="medium">Medium</Button>
+          <Button size="large">Large</Button>
         </div>
 
         {/* With Icons */}
@@ -90,7 +90,7 @@ const ComponentShowcase = () => {
         />
         <div className="rounded-[18px] border border-dashed border-graphite bg-charcoal/30 p-6">
           <p className="text-text-secondary text-sm">
-            This entire showcase page is wrapped in a <code className="rounded bg-graphite px-2 py-0.5 text-crimson">{'<Container>'}</code> component. 
+            This entire showcase page is wrapped in a <code className="rounded bg-graphite px-2 py-0.5 text-crimson">{'<Container>'}</code> component.
             Resize the browser to see the responsive padding change.
           </p>
         </div>
@@ -119,17 +119,14 @@ const ComponentShowcase = () => {
            ---------------------------------------------------------------- */}
         <SectionTitle
           title="Badge"
-          subtitle="Labelling and status indicators for products, categories, and states."
+          subtitle="Product labels and status indicators."
           align="left"
         />
         <div className="flex flex-wrap items-center gap-3">
-          <Badge>Default</Badge>
-          <Badge variant="crimson">Crimson</Badge>
-          <Badge variant="gold">Gold</Badge>
-          <Badge variant="success">Success</Badge>
-          <Badge variant="warning">Warning</Badge>
-          <Badge variant="error">Error</Badge>
-          <Badge variant="info">Info</Badge>
+          <Badge variant="new">New</Badge>
+          <Badge variant="sale">Sale</Badge>
+          <Badge variant="trending">Trending</Badge>
+          <Badge variant="featured">Featured</Badge>
         </div>
 
         <Divider />
@@ -139,12 +136,12 @@ const ComponentShowcase = () => {
            ---------------------------------------------------------------- */}
         <SectionTitle
           title="Card"
-          subtitle="Base card component with hover lift, shadow, and optional glassmorphism."
+          subtitle="Generic wrapper component with hover lift, shadow, and optional glassmorphism."
           align="left"
         />
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <Card className="p-6">
-            <Badge variant="crimson" className="mb-3">Standard</Badge>
+            <Badge variant="new" className="mb-3">New</Badge>
             <h3 className="text-lg font-semibold text-text-primary">Standard Card</h3>
             <p className="mt-2 text-sm text-text-muted">
               Solid charcoal background with hover lift and crimson glow shadow.
@@ -152,7 +149,7 @@ const ComponentShowcase = () => {
           </Card>
 
           <Card glass className="p-6">
-            <Badge variant="info" className="mb-3">Glass</Badge>
+            <Badge variant="trending" className="mb-3">Trending</Badge>
             <h3 className="text-lg font-semibold text-text-primary">Glass Card</h3>
             <p className="mt-2 text-sm text-text-muted">
               Semi-transparent background with backdrop blur for glassmorphism.
@@ -160,7 +157,7 @@ const ComponentShowcase = () => {
           </Card>
 
           <Card hover={false} className="p-6">
-            <Badge className="mb-3">Static</Badge>
+            <Badge variant="featured" className="mb-3">Featured</Badge>
             <h3 className="text-lg font-semibold text-text-primary">Static Card</h3>
             <p className="mt-2 text-sm text-text-muted">
               No hover animation. Useful for content that should not lift.
@@ -180,15 +177,15 @@ const ComponentShowcase = () => {
         />
         <div className="flex flex-wrap items-center justify-center gap-12">
           <div className="text-center">
-            <Loader size="sm" />
+            <Loader size="small" />
             <p className="mt-2 text-xs text-text-muted">Small</p>
           </div>
           <div className="text-center">
-            <Loader size="md" />
+            <Loader size="medium" />
             <p className="mt-2 text-xs text-text-muted">Medium</p>
           </div>
           <div className="text-center">
-            <Loader size="lg" />
+            <Loader size="large" />
             <p className="mt-2 text-xs text-text-muted">Large</p>
           </div>
         </div>
@@ -208,7 +205,7 @@ const ComponentShowcase = () => {
           <Card hover={false} className="p-6">
             <EmptyState
               title="Your cart is empty"
-              message="Looks like you haven't added any products yet."
+              description="Looks like you haven't added any products yet."
               actionLabel="Start Shopping"
               onAction={() => alert('Navigate to Shop')}
             />
@@ -218,7 +215,7 @@ const ComponentShowcase = () => {
             <EmptyState
               icon={Search}
               title="No results found"
-              message="Try adjusting your search or filters."
+              description="Try adjusting your search or filters."
             />
           </Card>
         </div>

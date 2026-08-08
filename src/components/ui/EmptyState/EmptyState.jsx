@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
 import { PackageOpen } from 'lucide-react'
-import Button from './Button'
+import Button from '../Button'
 
 const EmptyState = ({
   icon: Icon = PackageOpen,
   title = 'Nothing here yet',
-  message = 'There are no items to display at the moment.',
+  description = 'There are no items to display at the moment.',
   actionLabel,
   onAction,
   className = '',
@@ -24,11 +24,11 @@ const EmptyState = ({
         {title}
       </h3>
       <p className="mt-2 max-w-sm text-sm text-text-muted">
-        {message}
+        {description}
       </p>
       {actionLabel && onAction && (
         <div className="mt-6">
-          <Button variant="secondary" size="sm" onClick={onAction}>
+          <Button variant="secondary" size="small" onClick={onAction}>
             {actionLabel}
           </Button>
         </div>
