@@ -1,16 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Heart, ShoppingCart, Menu, X, Gamepad2 } from 'lucide-react'
-import { Container } from '../ui'
+import { Search, Heart, ShoppingCart, Menu } from 'lucide-react'
+import { Container } from '../../ui'
+import Logo from '../Logo'
+import NavLinks from './NavLinks'
 import MobileMenu from './MobileMenu'
-
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/shop', label: 'Shop' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-]
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -57,47 +52,10 @@ const Navbar = () => {
             aria-label="Main navigation"
           >
             {/* Logo */}
-            <Link
-              to="/"
-              className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-text-primary transition-colors duration-200 hover:text-crimson"
-            >
-              <Gamepad2 size={28} className="text-crimson" />
-              <span>
-                Game<span className="text-crimson">Gear</span>
-              </span>
-            </Link>
+            <Logo />
 
             {/* Desktop Navigation Links */}
-            <ul className="hidden items-center gap-1 lg:flex">
-              {navLinks.map((link) => (
-                <li key={link.to}>
-                  <NavLink
-                    to={link.to}
-                    className={({ isActive }) => `
-                      relative px-4 py-2 text-sm font-medium rounded-[12px]
-                      transition-all duration-200
-                      ${isActive
-                        ? 'text-crimson'
-                        : 'text-text-secondary hover:text-text-primary hover:bg-charcoal'
-                      }
-                    `}
-                  >
-                    {({ isActive }) => (
-                      <>
-                        {link.label}
-                        {isActive && (
-                          <motion.div
-                            layoutId="navbar-indicator"
-                            className="absolute bottom-0 left-4 right-4 h-[2px] rounded-full bg-crimson"
-                            transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                          />
-                        )}
-                      </>
-                    )}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+            <NavLinks />
 
             {/* Desktop Action Icons */}
             <div className="hidden items-center gap-1 lg:flex">
@@ -155,7 +113,7 @@ const Navbar = () => {
       <AnimatePresence>
         {mobileOpen && (
           <MobileMenu
-            navLinks={navLinks}
+            navLinks={NavLinks.links}
             onClose={() => setMobileOpen(false)}
           />
         )}

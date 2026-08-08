@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-  Gamepad2,
   Globe,
   MessageCircle,
   Send,
   Tv,
   ArrowRight,
 } from 'lucide-react'
-import { Container, Button } from '../ui'
+import { Container, Button } from '../../ui'
+import Logo from '../Logo'
 
 const quickLinks = [
   { to: '/', label: 'Home' },
@@ -41,13 +41,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            <Link
-              to="/"
-              className="mb-4 inline-flex items-center gap-2 text-xl font-extrabold text-text-primary transition-colors duration-200 hover:text-crimson"
-            >
-              <Gamepad2 size={26} className="text-crimson" />
-              Game<span className="text-crimson">Gear</span>
-            </Link>
+            <Logo className="mb-4" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-text-muted">
               Premium gaming gear for every gamer. Elevate your setup with
               top-tier peripherals, accessories, and equipment.

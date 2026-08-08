@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { X, Search, Gamepad2 } from 'lucide-react'
+import { X, Search } from 'lucide-react'
+import Logo from '../Logo'
 
 const overlayVariants = {
   hidden: { opacity: 0 },
@@ -55,10 +56,7 @@ const MobileMenu = ({ navLinks, onClose }) => {
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 h-[72px] border-b border-graphite">
-          <div className="flex items-center gap-2 text-lg font-extrabold text-text-primary">
-            <Gamepad2 size={24} className="text-crimson" />
-            Game<span className="text-crimson">Gear</span>
-          </div>
+          <Logo className="text-lg" />
           <button
             onClick={onClose}
             aria-label="Close menu"
@@ -77,7 +75,7 @@ const MobileMenu = ({ navLinks, onClose }) => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex-1 px-6 py-4">
+        <nav className="flex-1 px-6 py-4" aria-label="Mobile navigation">
           <ul className="flex flex-col gap-1">
             {navLinks.map((link, i) => (
               <motion.li
