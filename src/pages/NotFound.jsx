@@ -1,25 +1,47 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { Home, Compass } from 'lucide-react'
+import { Container, Button } from '../components/ui'
 
 const NotFound = () => {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-8xl font-extrabold text-crimson">404</h1>
-        <p className="mt-4 text-2xl font-semibold text-text-primary">
-          Page Not Found
-        </p>
-        <p className="mt-2 text-text-muted">
-          The page you are looking for does not exist.
-        </p>
-        <Link
-          to="/"
-          className="mt-8 inline-block rounded-[12px] bg-crimson px-8 py-3 font-semibold text-white transition-all duration-300 hover:shadow-[0_4px_16px_rgba(215,38,56,0.25)] hover:scale-105"
+    <main className="min-h-[80vh] flex items-center justify-center py-20 bg-obsidian text-text-primary">
+      <Container>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto max-w-md text-center flex flex-col items-center"
         >
-          Back to Home
-        </Link>
-      </div>
+          <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-charcoal border border-graphite text-crimson shadow-[0_0_24px_rgba(215,38,56,0.2)]">
+            <Compass size={40} className="animate-pulse" />
+          </div>
+          <span className="text-sm font-bold uppercase tracking-widest text-crimson">
+            Error 404
+          </span>
+          <h1 className="mt-2 text-5xl font-extrabold tracking-tight text-text-primary sm:text-6xl">
+            Page Not Found
+          </h1>
+          <p className="mt-4 text-base text-text-muted">
+            The page or gear specification you are looking for has been moved, renamed, or does not exist.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link to="/">
+              <Button size="large" icon={Home}>
+                Back to Home
+              </Button>
+            </Link>
+            <Link to="/shop">
+              <Button variant="secondary" size="large">
+                Explore Shop
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
+      </Container>
     </main>
   )
 }
 
 export default NotFound
+
