@@ -6,11 +6,16 @@ import { Container } from '../../ui'
 import Logo from '../Logo'
 import NavLinks from './NavLinks'
 import MobileMenu from './MobileMenu'
+import { useCart } from '../../../context/CartContext'
+import { useWishlist } from '../../../context/WishlistContext'
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  
+  const { totalItems: cartCount } = useCart()
+  const { totalItems: wishlistCount } = useWishlist()
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -67,17 +72,27 @@ const Navbar = () => {
               </button>
               <Link
                 to="/wishlist"
-                aria-label="Wishlist"
-                className="flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary"
+                aria-label={`Wishlist containing ${wishlistCount} items`}
+                className="relative flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary"
               >
                 <Heart size={20} />
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-crimson text-[9px] font-bold text-white ring-2 ring-obsidian">
+                    {wishlistCount}
+                  </span>
+                )}
               </Link>
               <Link
                 to="/cart"
-                aria-label="Cart"
-                className="flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary"
+                aria-label={`Cart containing ${cartCount} items`}
+                className="relative flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary"
               >
                 <ShoppingCart size={20} />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-crimson text-[9px] font-bold text-white ring-2 ring-obsidian">
+                    {cartCount}
+                  </span>
+                )}
               </Link>
             </div>
 
@@ -85,17 +100,27 @@ const Navbar = () => {
             <div className="flex items-center gap-1 lg:hidden">
               <Link
                 to="/wishlist"
-                aria-label="Wishlist"
-                className="flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary"
+                aria-label={`Wishlist containing ${wishlistCount} items`}
+                className="relative flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary"
               >
                 <Heart size={20} />
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-crimson text-[9px] font-bold text-white ring-2 ring-obsidian">
+                    {wishlistCount}
+                  </span>
+                )}
               </Link>
               <Link
                 to="/cart"
-                aria-label="Cart"
-                className="flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary"
+                aria-label={`Cart containing ${cartCount} items`}
+                className="relative flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary"
               >
                 <ShoppingCart size={20} />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-crimson text-[9px] font-bold text-white ring-2 ring-obsidian">
+                    {cartCount}
+                  </span>
+                )}
               </Link>
               <button
                 onClick={() => setMobileOpen(true)}

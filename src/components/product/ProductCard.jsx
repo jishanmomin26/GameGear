@@ -6,14 +6,24 @@ import ProductBadge from './ProductBadge'
 import ProductRating from './ProductRating'
 import ProductPrice from './ProductPrice'
 import ProductActions from './ProductActions'
+import { useWishlist } from '../../context/WishlistContext'
 
 const ProductCard = ({ product, className = '' }) => {
+  const { toggleWishlist, isInWishlist } = useWishlist()
+  
   const hasDiscount = product.originalPrice !== null && product.originalPrice > product.price
   const discountPercent = hasDiscount
     ? Math.round((1 - product.price / product.originalPrice) * 100)
     : 0
 
   const productUrl = `/product/${product.id}`
+  const isWishlisted = isInWishlist(product.id)
+
+  const handleWishlistClick = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    toggleWishlist(product)
+  }
 
   return (
     <Card className={`group relative flex flex-col ${className}`}>
@@ -45,10 +55,16 @@ const ProductCard = ({ product, className = '' }) => {
 
         {/* Wishlist button */}
         <button
-          aria-label={`Add ${product.name} to wishlist`}
-          className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-obsidian/60 text-text-muted backdrop-blur-sm transition-all duration-200 hover:bg-crimson hover:text-white opacity-0 group-hover:opacity-100 cursor-pointer z-10"
+          aria-label={`${isWishlisted ? 'Remove from' : 'Add to'} wishlist`}
+          onClick={handleWishlistClick}
+          className={`absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-200 cursor-pointer z-10
+            ${isWishlisted 
+              ? 'bg-crimson text-white opacity-100 shadow-[0_0_12px_rgba(224,0,76,0.4)]' 
+              : 'bg-obsidian/60 text-text-muted opacity-0 group-hover:opacity-100 hover:bg-crimson hover:text-white'
+            }
+          `}
         >
-          <Heart size={16} />
+          <Heart size={16} className={isWishlisted ? 'fill-white text-white' : ''} />
         </button>
       </div>
 
@@ -77,7 +93,7 @@ const ProductCard = ({ product, className = '' }) => {
             originalPrice={product.originalPrice}
           />
           {product.inStock !== false && (
-            <ProductActions productName={product.name} />
+            <ProductActions product={product} />
           )}
         </div>
       </div>

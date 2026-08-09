@@ -22,6 +22,8 @@ import {
   ProductGrid,
 } from '../components/product'
 import { products, getRelatedProducts } from '../data/products'
+import { useCart } from '../context/CartContext'
+import { useWishlist } from '../context/WishlistContext'
 
 // ── Spec key → readable label map ──
 const specLabels = {
@@ -53,6 +55,9 @@ const specLabels = {
 const ProductDetails = () => {
   const { id } = useParams()
   const navigate = useNavigate()
+  
+  const { addToCart } = useCart()
+  const { toggleWishlist, isInWishlist } = useWishlist()
 
   // Find product by id
   const product = useMemo(() => products.find((p) => p.id === id), [id])
@@ -64,7 +69,8 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1)
   const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [cartAdded, setCartAdded] = useState(false)
-  const [wishlistAdded, setWishlistAdded] = useState(false)
+
+  const wishlistAdded = product ? isInWishlist(product.id) : false
 
   // Build gallery images (main + variations from the same Unsplash source)
   const galleryImages = useMemo(() => {
@@ -80,12 +86,15 @@ const ProductDetails = () => {
 
   // ── Handlers ──
   const handleAddToCart = () => {
+    if (!product) return
+    addToCart(product, quantity)
     setCartAdded(true)
     setTimeout(() => setCartAdded(false), 2000)
   }
 
   const handleAddToWishlist = () => {
-    setWishlistAdded((prev) => !prev)
+    if (!product) return
+    toggleWishlist(product)
   }
 
   const decreaseQty = () => setQuantity((q) => Math.max(1, q - 1))
