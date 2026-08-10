@@ -125,15 +125,19 @@ const Contact = () => {
   }
 
   return (
-    <main className="min-h-screen pt-24 pb-16 bg-obsidian text-text-primary">
+    <section className="py-10 lg:py-16 text-text-primary">
       <Container>
         {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-muted">
-          <Link to="/" className="transition-colors hover:text-crimson">
-            Home
-          </Link>
-          <ChevronRight size={12} />
-          <span className="text-text-primary font-semibold">Contact Support</span>
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-muted">
+            <li>
+              <Link to="/" className="transition-colors hover:text-crimson">
+                Home
+              </Link>
+            </li>
+            <li><ChevronRight size={12} /></li>
+            <li className="text-text-primary font-semibold">Contact Support</li>
+          </ol>
         </nav>
 
         {/* ── 1. Contact Hero ── */}
@@ -153,9 +157,14 @@ const Contact = () => {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start">
           {/* Left Column — Contact Info & Visual Panel */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <h2 className="text-xl font-bold uppercase tracking-wider text-text-primary">
-              Contact Information
-            </h2>
+            <div>
+              <h2 className="text-2xl font-extrabold text-text-primary">
+                Contact Information
+              </h2>
+              <p className="mt-1 text-sm text-text-muted">
+                Reach out to our team directly through any channel below.
+              </p>
+            </div>
 
             {/* Info Cards Grid */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
@@ -404,7 +413,7 @@ const Contact = () => {
           </div>
         </div>
       </Container>
-    </main>
+    </section>
   )
 }
 

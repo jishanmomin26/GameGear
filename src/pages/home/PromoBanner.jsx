@@ -5,14 +5,14 @@ import { Container, Button } from '../../components/ui'
 
 const PromoBanner = () => {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          className="relative overflow-hidden rounded-[24px] border border-graphite bg-gradient-to-br from-charcoal via-charcoal to-obsidian"
+          className="mx-auto max-w-[1040px] relative overflow-hidden rounded-[24px] border border-graphite bg-gradient-to-br from-charcoal via-charcoal to-obsidian"
         >
           {/* Ambient glows */}
           <div className="pointer-events-none absolute top-0 right-0 h-[300px] w-[300px] rounded-full bg-crimson/10 blur-[100px]" />

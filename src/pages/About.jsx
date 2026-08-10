@@ -52,9 +52,9 @@ const features = [
 
 const About = () => {
   return (
-    <main className="min-h-screen pt-24 pb-16 bg-obsidian text-text-primary">
+    <div className="text-text-primary">
       {/* ── 1. About Hero ── */}
-      <section className="relative overflow-hidden py-12 lg:py-20">
+      <section className="relative overflow-hidden py-14 lg:py-20">
         {/* Background Gradients */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-crimson/8 via-transparent to-gold/5" />
         <div className="pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-crimson/5 blur-[120px]" />
@@ -62,49 +62,57 @@ const About = () => {
 
         <Container>
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-muted">
-            <Link to="/" className="transition-colors hover:text-crimson">
-              Home
-            </Link>
-            <ChevronRight size={12} />
-            <span className="text-text-primary font-semibold">About Us</span>
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-muted">
+              <li>
+                <Link to="/" className="transition-colors hover:text-crimson">
+                  Home
+                </Link>
+              </li>
+              <li><ChevronRight size={12} /></li>
+              <li className="text-text-primary font-semibold">About Us</li>
+            </ol>
           </nav>
 
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left Content */}
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+            {/* Left Content (55%) */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="lg:col-span-7 flex flex-col justify-center"
             >
-              <span className="inline-block rounded-full border border-crimson/30 bg-crimson/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-crimson">
-                About GameGear
-              </span>
+              <div>
+                <span className="inline-block rounded-full border border-crimson/30 bg-crimson/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-crimson">
+                  About GameGear
+                </span>
+              </div>
 
-              <h1 className="mt-4 text-4xl font-extrabold leading-[1.15] tracking-tight text-text-primary sm:text-5xl lg:text-[52px]">
+              <h1 className="mt-5 text-4xl font-extrabold leading-[1.15] tracking-tight text-text-primary sm:text-5xl lg:text-[52px]">
                 Built by Gamers,
                 <br />
-                <span className="bg-gradient-to-r from-crimson to-gold bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-crimson via-red-500 to-gold bg-clip-text text-transparent">
                   Engineered for Perfection
                 </span>
               </h1>
 
-              <p className="mt-6 text-base sm:text-lg leading-relaxed text-text-muted">
+              <p className="mt-5 max-w-[560px] text-base leading-relaxed text-text-muted sm:text-lg">
                 GameGear was founded on a single core belief: competitive gamers deserve zero-compromise hardware. From ultra-responsive keyboards to pixel-precise optical sensors, we craft gear designed to elevate your performance.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Link to="/shop">
-                  <Button size="large" icon={ShoppingBag}>
+              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                <Link to="/shop" className="w-full sm:w-auto">
+                  <Button size="large" icon={ShoppingBag} className="w-full justify-center px-8">
                     Explore Shop
                   </Button>
                 </Link>
-                <a href="#story">
+                <a href="#story" className="w-full sm:w-auto">
                   <Button
                     variant="secondary"
                     size="large"
                     icon={ArrowRight}
                     iconPosition="right"
+                    className="w-full justify-center px-8"
                   >
                     Our Story
                   </Button>
@@ -112,14 +120,14 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Right Visual */}
+            {/* Right Visual (45%) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-              className="relative"
+              className="lg:col-span-5 relative"
             >
-              <div className="relative overflow-hidden rounded-[24px] border border-graphite bg-charcoal shadow-[0_8px_40px_rgba(215,38,56,0.15)]">
+              <div className="relative overflow-hidden rounded-[24px] border border-graphite bg-charcoal shadow-[0_12px_48px_rgba(215,38,56,0.15)] aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] xl:aspect-square max-h-[480px]">
                 <img
                   src={heroImg}
                   alt="GameGear battle station with custom peripherals and RGB illumination"
@@ -133,9 +141,9 @@ const About = () => {
       </section>
 
       {/* ── 2. GameGear Story ── */}
-      <section id="story" className="py-16 border-t border-graphite/60 bg-charcoal/30">
+      <section id="story" className="py-16 lg:py-24 border-t border-graphite/60 bg-charcoal/30">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-[850px] text-center">
             <SectionTitle
               subtitle="THE JOURNEY"
               title="The GameGear Story"
@@ -164,14 +172,14 @@ const About = () => {
       </section>
 
       {/* ── 3. Mission ── */}
-      <section className="py-16">
+      <section className="py-16 lg:py-20">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-[24px] border border-crimson/30 bg-gradient-to-r from-charcoal via-obsidian to-charcoal p-8 sm:p-12 text-center shadow-[0_4px_30px_rgba(215,38,56,0.1)]"
+            className="mx-auto max-w-[1100px] relative overflow-hidden rounded-[24px] border border-crimson/30 bg-gradient-to-r from-charcoal via-obsidian to-charcoal p-8 sm:p-12 text-center shadow-[0_4px_30px_rgba(215,38,56,0.1)]"
           >
             <div className="pointer-events-none absolute -top-24 -left-24 h-48 w-48 rounded-full bg-crimson/15 blur-[60px]" />
             <div className="pointer-events-none absolute -bottom-24 -right-24 h-48 w-48 rounded-full bg-gold/15 blur-[60px]" />
@@ -297,7 +305,7 @@ const About = () => {
           </motion.div>
         </Container>
       </section>
-    </main>
+    </div>
   )
 }
 

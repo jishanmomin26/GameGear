@@ -4,14 +4,14 @@ import { Container, Button } from '../../components/ui'
 
 const Newsletter = () => {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          className="relative overflow-hidden rounded-[24px] border border-graphite bg-charcoal px-8 py-16 text-center sm:px-16 sm:py-20"
+          className="mx-auto max-w-[1000px] relative overflow-hidden rounded-[24px] border border-graphite bg-charcoal px-8 py-16 text-center sm:px-16 sm:py-20"
         >
           {/* Ambient glow */}
           <div className="pointer-events-none absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/6 blur-[100px]" />

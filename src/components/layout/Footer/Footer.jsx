@@ -29,45 +29,52 @@ const socialLinks = [
   { icon: Tv, label: 'Twitch', href: '#' },
 ]
 
+const animationSettings = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+}
+
 const Footer = () => {
   return (
-    <footer className="border-t border-graphite bg-charcoal">
+    <footer className="border-t border-graphite bg-charcoal text-text-muted">
       <Container>
         <div className="grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...animationSettings}
             transition={{ duration: 0.4 }}
+            className="flex flex-col items-start"
           >
             <Logo className="mb-4" />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-text-muted">
+            <p className="max-w-xs text-sm leading-relaxed">
               Premium gaming gear for every gamer. Elevate your setup with
               top-tier peripherals, accessories, and equipment.
             </p>
 
             {/* Social Icons */}
             <div className="mt-6 flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-graphite bg-obsidian text-text-muted transition-all duration-200 hover:border-crimson hover:text-crimson"
-                >
-                  <social.icon size={16} />
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon = social.icon
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-graphite bg-obsidian text-text-muted transition-all duration-200 hover:border-crimson hover:text-crimson hover:scale-105"
+                  >
+                    <Icon size={16} />
+                  </a>
+                )
+              })}
             </div>
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <motion.nav
+            {...animationSettings}
             transition={{ duration: 0.4, delay: 0.1 }}
+            aria-label="Quick Links Footer Navigation"
           >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-primary">
               Quick Links
@@ -77,21 +84,20 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-text-muted transition-colors duration-200 hover:text-crimson"
+                    className="text-sm transition-colors duration-200 hover:text-crimson inline-block py-0.5"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.nav>
 
           {/* Shop Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <motion.nav
+            {...animationSettings}
             transition={{ duration: 0.4, delay: 0.2 }}
+            aria-label="Shop Footer Navigation"
           >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-primary">
               Shop
@@ -101,26 +107,24 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-text-muted transition-colors duration-200 hover:text-crimson"
+                    className="text-sm transition-colors duration-200 hover:text-crimson inline-block py-0.5"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.nav>
 
           {/* Newsletter */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...animationSettings}
             transition={{ duration: 0.4, delay: 0.3 }}
           >
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-primary">
               Newsletter
             </h4>
-            <p className="mb-4 text-sm text-text-muted">
+            <p className="mb-4 text-sm">
               Get the latest gear drops and exclusive deals.
             </p>
             <form
@@ -130,8 +134,8 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                aria-label="Email for newsletter"
-                className="flex-1 rounded-[12px] border border-graphite bg-obsidian px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted transition-colors duration-200 focus:border-crimson focus:outline-none"
+                aria-label="Email for newsletter subscription"
+                className="flex-1 rounded-xl border border-graphite bg-obsidian px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted transition-colors duration-200 focus:border-crimson focus:outline-none"
               />
               <Button size="small" className="shrink-0" icon={ArrowRight}>
                 <span className="sr-only">Subscribe</span>
@@ -144,11 +148,11 @@ const Footer = () => {
       {/* Copyright Bar */}
       <div className="border-t border-graphite">
         <Container>
-          <div className="flex flex-col items-center justify-between gap-2 py-6 sm:flex-row">
-            <p className="text-xs text-text-muted">
+          <div className="flex flex-col items-center justify-between gap-3 py-6 sm:flex-row">
+            <p className="text-xs">
               © {new Date().getFullYear()} GameGear. All rights reserved.
             </p>
-            <p className="text-xs text-text-muted">
+            <p className="text-xs flex items-center gap-1">
               Designed with <span className="text-crimson">♥</span> for gamers
             </p>
           </div>

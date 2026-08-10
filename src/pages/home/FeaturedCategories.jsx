@@ -18,7 +18,7 @@ const itemVariants = {
 
 const FeaturedCategories = () => {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <Container>
         <SectionTitle
           title="Shop by Category"

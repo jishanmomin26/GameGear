@@ -26,7 +26,7 @@ const ProductCard = ({ product, className = '' }) => {
   }
 
   return (
-    <Card className={`group relative flex flex-col ${className}`}>
+    <Card className={`group relative flex flex-col h-full ${className}`}>
       {/* Image Container */}
       <div className="relative">
         <Link to={productUrl} aria-label={`View ${product.name}`}>
@@ -60,7 +60,7 @@ const ProductCard = ({ product, className = '' }) => {
           className={`absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-200 cursor-pointer z-10
             ${isWishlisted 
               ? 'bg-crimson text-white opacity-100 shadow-[0_0_12px_rgba(224,0,76,0.4)]' 
-              : 'bg-obsidian/60 text-text-muted opacity-0 group-hover:opacity-100 hover:bg-crimson hover:text-white'
+              : 'bg-obsidian/60 text-text-muted max-lg:opacity-100 lg:opacity-0 group-hover:opacity-100 hover:bg-crimson hover:text-white'
             }
           `}
         >
@@ -87,15 +87,20 @@ const ProductCard = ({ product, className = '' }) => {
         />
 
         {/* Price + Action */}
-        <div className="mt-auto flex items-center justify-between pt-4">
-          <ProductPrice
-            price={product.price}
-            originalPrice={product.originalPrice}
-          />
-          {product.inStock !== false && (
-            <ProductActions product={product} />
-          )}
-        </div>
+        <div className="mt-auto flex w-full items-center justify-between gap-3 pt-4">
+  <div className="min-w-0 flex-1">
+    <ProductPrice
+      price={product.price}
+      originalPrice={product.originalPrice}
+    />
+  </div>
+
+  {product.inStock !== false && (
+    <div className="shrink-0">
+      <ProductActions product={product} />
+    </div>
+  )}
+</div>
       </div>
     </Card>
   )

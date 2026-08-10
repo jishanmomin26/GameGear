@@ -9,19 +9,25 @@ const Wishlist = () => {
   const { wishlist, totalItems } = useWishlist()
 
   return (
-    <main className="min-h-screen pt-24 pb-16 bg-obsidian text-text-primary">
+    <section className="py-10 lg:py-16 text-text-primary">
       <Container>
         {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-muted">
-          <Link to="/" className="transition-colors hover:text-crimson">
-            Home
-          </Link>
-          <ChevronRight size={12} />
-          <Link to="/shop" className="transition-colors hover:text-crimson">
-            Shop
-          </Link>
-          <ChevronRight size={12} />
-          <span className="text-text-primary font-semibold">Wishlist</span>
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-muted">
+            <li>
+              <Link to="/" className="transition-colors hover:text-crimson">
+                Home
+              </Link>
+            </li>
+            <li><ChevronRight size={12} /></li>
+            <li>
+              <Link to="/shop" className="transition-colors hover:text-crimson">
+                Shop
+              </Link>
+            </li>
+            <li><ChevronRight size={12} /></li>
+            <li className="text-text-primary font-semibold">Wishlist</li>
+          </ol>
         </nav>
 
         {/* Heading */}
@@ -51,7 +57,7 @@ const Wishlist = () => {
           <ProductGrid products={wishlist} columns={4} />
         )}
       </Container>
-    </main>
+    </section>
   )
 }
 

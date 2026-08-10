@@ -35,7 +35,7 @@ const ProductGrid = ({
       className={`grid gap-6 ${colClasses[columns] || colClasses[4]} ${className}`}
     >
       {products.map((product) => (
-        <motion.div key={product.id} variants={itemVariants}>
+        <motion.div key={product.id} variants={itemVariants} className="h-full">
           <ProductCard product={product} />
         </motion.div>
       ))}

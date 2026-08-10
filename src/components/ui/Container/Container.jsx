@@ -1,13 +1,7 @@
 const Container = ({ children, className = '', as: Component = 'div' }) => {
   return (
     <Component
-      className={`
-        mx-auto w-full max-w-[1280px]
-        px-[32px]
-        max-lg:px-[24px]
-        max-sm:px-[16px]
-        ${className}
-      `}
+      className={`mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8 ${className}`}
     >
       {children}
     </Component>
@@ -15,3 +9,4 @@ const Container = ({ children, className = '', as: Component = 'div' }) => {
 }
 
 export default Container
+

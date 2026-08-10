@@ -122,30 +122,24 @@ const ProductDetails = () => {
     product.originalPrice !== null && product.originalPrice > product.price
 
   return (
-    <section className="py-12 lg:py-16">
+    <section className="py-10 lg:py-16">
       <Container>
         {/* ── Breadcrumb ── */}
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex items-center gap-1.5 text-sm text-text-muted">
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-muted">
             <li>
-              <Link
-                to="/"
-                className="transition-colors duration-200 hover:text-text-primary"
-              >
+              <Link to="/" className="transition-colors hover:text-crimson">
                 Home
               </Link>
             </li>
-            <li><ChevronRight size={14} /></li>
+            <li><ChevronRight size={12} /></li>
             <li>
-              <Link
-                to="/shop"
-                className="transition-colors duration-200 hover:text-text-primary"
-              >
+              <Link to="/shop" className="transition-colors hover:text-crimson">
                 Shop
               </Link>
             </li>
-            <li><ChevronRight size={14} /></li>
-            <li className="font-medium text-text-primary truncate max-w-[200px]">
+            <li><ChevronRight size={12} /></li>
+            <li className="font-semibold text-text-primary truncate max-w-[200px] sm:max-w-none">
               {product.name}
             </li>
           </ol>

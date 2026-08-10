@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, Heart, ShoppingCart, Menu } from 'lucide-react'
 import { Container } from '../../ui'
@@ -13,6 +13,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
   
   const { totalItems: cartCount } = useCart()
   const { totalItems: wishlistCount } = useWishlist()
@@ -65,7 +66,8 @@ const Navbar = () => {
             {/* Desktop Action Icons */}
             <div className="hidden items-center gap-1 lg:flex">
               <button
-                aria-label="Search"
+                onClick={() => navigate('/shop')}
+                aria-label="Search products"
                 className="flex h-10 w-10 items-center justify-center rounded-full text-text-secondary transition-all duration-200 hover:bg-charcoal hover:text-text-primary cursor-pointer"
               >
                 <Search size={20} />

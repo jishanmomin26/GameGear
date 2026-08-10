@@ -79,21 +79,18 @@ const Shop = () => {
   const hasActiveFilters = searchQuery || activeCategory !== 'all' || sortBy !== 'featured'
 
   return (
-    <section className="py-12 lg:py-16">
+    <section className="py-10 lg:py-16">
       <Container>
         {/* ── Breadcrumb ── */}
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-1.5 text-sm text-text-muted">
+          <ol className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-muted">
             <li>
-              <Link
-                to="/"
-                className="transition-colors duration-200 hover:text-text-primary"
-              >
+              <Link to="/" className="transition-colors hover:text-crimson">
                 Home
               </Link>
             </li>
-            <li><ChevronRight size={14} /></li>
-            <li className="text-text-primary font-medium">Shop</li>
+            <li><ChevronRight size={12} /></li>
+            <li className="text-text-primary font-semibold">Shop</li>
           </ol>
         </nav>
 
@@ -102,65 +99,62 @@ const Shop = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="mb-10"
+          className="mb-8"
         >
-          <h1 className="text-[44px] font-extrabold leading-tight text-text-primary max-sm:text-[32px]">
+          <h1 className="text-4xl font-extrabold tracking-tight text-text-primary sm:text-5xl uppercase">
             Shop
           </h1>
-          <p className="mt-2 max-w-lg text-base text-text-muted">
+          <p className="mt-2 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
             Browse our full collection of premium gaming peripherals, accessories, and equipment.
           </p>
         </motion.div>
 
-        {/* ── Search + Sort Bar ── */}
+        {/* ── Controls Toolbar ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.1 }}
-          className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+          className="mb-6 rounded-2xl border border-graphite bg-charcoal/80 p-3 sm:p-4 shadow-sm"
         >
-          {/* Search */}
-          <div className="relative flex-1 max-w-md">
-            <Search
-              size={18}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none"
-            />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search products..."
-              aria-label="Search products"
-              className="w-full rounded-[12px] border border-graphite bg-charcoal py-3 pl-11 pr-10 text-sm text-text-primary placeholder:text-text-muted transition-colors duration-200 focus:border-crimson focus:outline-none"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                aria-label="Clear search"
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex h-6 w-6 items-center justify-center rounded-full text-text-muted hover:text-text-primary transition-colors cursor-pointer"
-              >
-                <X size={14} />
-              </button>
-            )}
-          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+            {/* Search Input */}
+            <div className="relative w-full sm:max-w-md">
+              <Search
+                size={18}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none"
+              />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search products..."
+                aria-label="Search products"
+                className="w-full rounded-xl border border-graphite bg-obsidian py-2.5 pl-14.5 pr-10 text-sm text-text-primary placeholder:text-text-muted transition-colors duration-200 focus:border-crimson focus:outline-none"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  aria-label="Clear search"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 flex h-6 w-6 items-center justify-center rounded-full text-text-muted hover:text-text-primary transition-colors cursor-pointer"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
 
-          {/* Sort Dropdown + Product Count */}
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-text-muted whitespace-nowrap">
-              {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
-            </span>
-
-            {/* Sort */}
-            <div className="relative">
+            {/* Sort Dropdown */}
+            <div className="relative w-full sm:w-auto flex justify-end">
               <button
                 onClick={() => setSortOpen(!sortOpen)}
-                className="flex items-center gap-2 rounded-[12px] border border-graphite bg-charcoal px-4 py-2.5 text-sm text-text-secondary transition-colors duration-200 hover:border-crimson hover:text-text-primary cursor-pointer"
+                className="flex w-full sm:w-auto items-center justify-between gap-2 rounded-xl border border-graphite bg-obsidian px-4 py-2.5 text-sm text-text-secondary transition-colors duration-200 hover:border-crimson hover:text-text-primary cursor-pointer"
                 aria-label="Sort products"
               >
-                <SlidersHorizontal size={14} />
-                <span className="hidden sm:inline">
-                  {sortOptions.find((o) => o.value === sortBy)?.label}
-                </span>
+                <div className="flex items-center gap-2">
+                  <SlidersHorizontal size={14} />
+                  <span>
+                    {sortOptions.find((o) => o.value === sortBy)?.label}
+                  </span>
+                </div>
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-200 ${sortOpen ? 'rotate-180' : ''}`}
@@ -179,7 +173,7 @@ const Shop = () => {
                     initial={{ opacity: 0, y: -8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full z-50 mt-2 w-52 overflow-hidden rounded-[12px] border border-graphite bg-charcoal shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+                    className="absolute right-0 top-full z-50 mt-2 w-52 overflow-hidden rounded-xl border border-graphite bg-charcoal shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
                   >
                     {sortOptions.map((option) => (
                       <button
@@ -211,13 +205,13 @@ const Shop = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.15 }}
-          className="mb-10 flex flex-wrap items-center gap-2"
+          className="mb-6 flex flex-wrap items-center gap-2"
         >
           {/* "All" chip */}
           <button
             onClick={() => setActiveCategory('all')}
             className={`
-              rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer
+              rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap
               ${activeCategory === 'all'
                 ? 'bg-crimson text-white shadow-[0_4px_16px_rgba(215,38,56,0.25)]'
                 : 'border border-graphite bg-charcoal text-text-secondary hover:border-crimson hover:text-text-primary'
@@ -235,7 +229,7 @@ const Shop = () => {
               key={cat.slug}
               onClick={() => setActiveCategory(cat.slug)}
               className={`
-                rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer
+                rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap
                 ${activeCategory === cat.slug
                   ? 'bg-crimson text-white shadow-[0_4px_16px_rgba(215,38,56,0.25)]'
                   : 'border border-graphite bg-charcoal text-text-secondary hover:border-crimson hover:text-text-primary'
@@ -257,6 +251,13 @@ const Shop = () => {
             </button>
           )}
         </motion.div>
+
+        {/* ── Product Count Bar ── */}
+        <div className="mb-6 flex items-center justify-between border-b border-graphite/60 pb-3">
+          <p className="text-xs font-bold uppercase tracking-wider text-text-muted">
+            {filteredProducts.length} Product{filteredProducts.length !== 1 ? 's' : ''} Found
+          </p>
+        </div>
 
         {/* ── Product Grid or Empty State ── */}
         {filteredProducts.length > 0 ? (

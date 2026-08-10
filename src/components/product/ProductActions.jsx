@@ -36,7 +36,7 @@ const ProductActions = ({
 
   if (layout === 'card') {
     return (
-      <div className={`flex items-center gap-2 ${className}`}>
+      <div className={`flex shrink-0 items-center gap-2 ${className}`}>
         {showCart && (
           <Button
             size="small"

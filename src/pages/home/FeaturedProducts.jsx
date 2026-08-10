@@ -5,7 +5,7 @@ import { featuredProducts } from '../../data/products'
 
 const FeaturedProducts = () => {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <Container>
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end">
           <SectionTitle
