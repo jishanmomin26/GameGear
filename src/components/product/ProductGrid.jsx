@@ -4,13 +4,24 @@ import ProductCard from './ProductCard'
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.06 },
+    transition: {
+      staggerChildren: 0.06,
+    },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.35,
+    },
+  },
 }
 
 const ProductGrid = ({
@@ -30,12 +41,17 @@ const ProductGrid = ({
     <motion.div
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
-      className={`grid gap-6 ${colClasses[columns] || colClasses[4]} ${className}`}
+      animate="visible"
+      className={`grid gap-6 ${
+        colClasses[columns] || colClasses[4]
+      } ${className}`}
     >
       {products.map((product) => (
-        <motion.div key={product.id} variants={itemVariants} className="h-full">
+        <motion.div
+          key={product.id}
+          variants={itemVariants}
+          className="h-full"
+        >
           <ProductCard product={product} />
         </motion.div>
       ))}

@@ -228,7 +228,7 @@ export const products = [
     featured: false,
     description: 'The keyboard that revolutionized competitive gaming with hall-effect rapid trigger technology.',
     specs: { switches: 'Lekker (Hall Effect)', layout: '60%', connectivity: 'USB-C', lighting: 'Per-key RGB', features: 'Rapid Trigger, Analog Input' },
-    image: 'https://images.unsplash.com/photo-1633934542430-0905ccb5f050?w=500&h=500&fit=crop',
+    image: 'https://imgs.search.brave.com/-u5Hq3IveuE7wZF5cd1T20QOZa3KIghyagY9hLZX1D8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/dGhlLXdvb3Rpbmct/NjBoZS12Mi1pcy1y/ZWFsLXYwLTE3MXEx/Z2M1MzUxZjEucG5n/P3dpZHRoPTE5MjAm/Zm9ybWF0PXBuZyZh/dXRvPXdlYnAmcz04/NTUzMDQ1YTZkZWFj/MGExZjYyZjZiODdm/Y2ZmNzM4M2RlYWE5/NDky',
   },
 
   // ── Gaming Mice ──
@@ -281,7 +281,7 @@ export const products = [
     featured: false,
     description: 'A compact symmetrical mouse designed for fingertip and claw grip styles with a premium sensor.',
     specs: { sensor: 'PixArt PAW3395', dpi: '26,000', weight: '52g', connectivity: 'Wireless 2.4GHz', battery: '70 hours' },
-    image: 'https://images.unsplash.com/photo-1629131726692-1acfc0d42e05?w=500&h=500&fit=crop',
+    image: 'https://imgs.search.brave.com/PfVynJdr-lTypkUjKgdsPpMZ2aztK6HN-nhsU4UTADU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cHVsc2FyLmdnL2Nk/bi9zaG9wL2ZpbGVz/L1B1bHNhcl9YX0Rl/bW9uX1NsYXllcl9Y/MlYyX01pbmlfS2Ft/YWRvX05lenVrb19H/YW1pbmdfTW91c2Vf/Z2FsbGVyeTAyLmpw/Zz92PTE3MDIxMzEw/MzQ?w=500&h=500&fit=crop',
   },
   {
     id: 'prod-014',
@@ -315,7 +315,7 @@ export const products = [
     featured: false,
     description: 'The benchmark for symmetrical esports mice with Focus Pro 35K sensor and ultra-low latency.',
     specs: { sensor: 'Focus Pro 35K', dpi: '35,000', weight: '54g', connectivity: 'HyperSpeed Wireless', battery: '95 hours' },
-    image: 'https://images.unsplash.com/photo-1586349906319-47f7c468440b?w=500&h=500&fit=crop',
+    image: 'https://imgs.search.brave.com/7W-SporcGaPGjL5eDD7BJJi08obl2dmcfa7wxF6LiX4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/cGNzdHVkaW8uaW4v/d3AtY29udGVudC91/cGxvYWRzLzIwMjUv/MTAvUmF6ZXItVmlw/ZXItVjMtUHJvLUZh/a2VyLUVkaXRpb24t/V2lyZWxlc3MtR2Ft/aW5nLU1vdXNlLTQu/d2VicA?w=500&h=500&fit=crop',
   },
 
   // ── Monitors ──
@@ -385,7 +385,7 @@ export const products = [
     featured: false,
     description: 'Premium 4K gaming monitor with built-in speakers and HDRi technology for immersive gameplay.',
     specs: { panel: 'IPS', size: '27"', resolution: '3840x2160', refreshRate: '144Hz', responseTime: '1ms' },
-    image: 'https://images.unsplash.com/photo-1616763355548-1b11cea39485?w=500&h=500&fit=crop',
+    image: 'https://imgs.search.brave.com/aBXf0PhaTviP2pIBDZi9bgGe6_osSph3stEqzKpf-jI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9lbGl0/ZWh1YnMuY29tL2Nk/bi9zaG9wL2ZpbGVz/LzM4MDMwLS00Lmdp/Zj92PTE2OTUzMTc0/MTImd2lkdGg9NTMz.gif',
   },
   {
     id: 'prod-020',
@@ -402,7 +402,7 @@ export const products = [
     featured: false,
     description: 'Stunning 32-inch 4K QD-OLED curved monitor designed for both gaming and productivity.',
     specs: { panel: 'QD-OLED', size: '32"', resolution: '3840x2160', refreshRate: '240Hz', responseTime: '0.03ms' },
-    image: 'https://images.unsplash.com/photo-1547394765-185e1e68d4a1?w=500&h=500&fit=crop',
+    image: 'https://imgs.search.brave.com/Ue6TuCin2BpHb29DZ2qEnyrJ1oTqU0ID9DbGCgwE01Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9uYXRp/b25hbHBjLmluL2lt/YWdlL2NhY2hlL2Nh/dGFsb2cvcHJvZHVj/dC9Nb25pdG9yL0Rl/bGwvQWxpZW53YXJl/L0FXMzIyNVFGLzUt/NTYweDU2MC5qcGcu/d2VicA',
   },
 
   // ── Headsets ──
@@ -559,7 +559,7 @@ export const products = [
     featured: false,
     description: 'Versatile Bluetooth controller with hall effect joysticks and a charging dock. Works on Switch, PC, and mobile.',
     specs: { connectivity: 'Bluetooth / 2.4GHz / USB-C', battery: '25 hours', features: 'Hall Effect Sticks, Charging Dock', compatibility: 'Switch / PC / Mobile', weight: '220g' },
-    image: 'https://images.unsplash.com/photo-1585620385456-4a0a18f4c5d9?w=500&h=500&fit=crop',
+    image: 'https://images.unsplash.com/photo-1722445423171-97b61af4c81a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     id: 'prod-030',
