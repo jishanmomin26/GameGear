@@ -130,3 +130,28 @@
   outline: 2px solid var(--color-crimson);
   outline-offset: 2px;
 }
+
+/* GameGear cinematic hero video */
+.hero-background-video {
+  animation: gamegearHeroZoom 14s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+@keyframes gamegearHeroZoom {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-background-video {
+    animation: none;
+    width: 105%;
+    height: 105%;
+    object-fit: cover;
+  }
+}
